@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Admin extends Model
 {
-    use HasFactory;
-    protected $table = "admin";
+    use HasFactory,SoftDeletes;
+    protected $table = "table_admin";
 
 
     function user(){
