@@ -8,9 +8,17 @@ use App\Models\Venda;
 use App\Models\Plataforma;
 use App\Models\CategoriaProduto;
 use App\Models\FotoProduto;
+
 class Produto extends Model
 {
     use HasFactory;
+
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Produto extends Model
+{
+    use HasFactory, SoftDeletes;
+
     protected $table = "produto";
 
     function vendas(){
