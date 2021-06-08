@@ -6,12 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Cidade;
 use App\Models\Cliente;
+
+
+class Endereco extends Model
+{
+    use HasFactory;
+
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Endereco extends Model
 {
     use HasFactory, SoftDeletes;
     
+
     protected $table = "endereco";
 
     function cliente(){
