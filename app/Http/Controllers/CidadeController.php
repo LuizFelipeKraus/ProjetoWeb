@@ -27,11 +27,11 @@ class CidadeController extends Controller
 
         if($nCidade->save()){
             session([
-                'mensagemSalvarCidade' => 'Sucesso ao adicionar uma nova cidade.'  
+                'mensagemSalvar' => 'Sucesso ao adicionar uma nova cidade.'  
             ]);            
         }else{
             session([
-                'mensagemSalvarCidade' => 'Erro ao adicionar uma nova cidade.'  
+                'mensagemSalvar' => 'Erro ao adicionar uma nova cidade.'  
             ]);
         }
         return redirect()->route('view_cidade_lista');
@@ -45,11 +45,11 @@ class CidadeController extends Controller
 
         if($aCidade->save()){
             session([
-                'mensagemSalvarCidade' => 'Sucesso ao alterar uma nova cidade.'  
+                'mensagemAlterar' => 'Sucesso ao alterar uma nova cidade.'  
             ]);            
         }else{
             session([
-                'mensagemSalvarCidade' => 'Erro ao alterar uma nova cidade.'  
+                'mensagemAlterar' => 'Erro ao alterar uma nova cidade.'  
             ]);
         }
         return redirect()->route('view_cidade_lista');
@@ -60,11 +60,11 @@ class CidadeController extends Controller
 
         if($dCidade->delete()){
             session([
-                'mensagemSalvarCidade' => 'Sucesso ao excluir uma nova cidade.'  
+                'mensagemDeletar' => 'Sucesso ao excluir uma nova cidade.'  
             ]);            
         }else{
             session([
-                'mensagemSalvarCidade' => 'Erro ao excluir uma nova cidade.'  
+                'mensagemDeletar' => 'Erro ao excluir uma nova cidade.'  
             ]);
         }
         return redirect()->route('view_cidade_lista');
