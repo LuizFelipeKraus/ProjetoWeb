@@ -16,7 +16,9 @@ class CreateTableCategoriaProduto extends Migration
         Schema::create('categoria_produto', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
+            $table->string('categoria_pai')->nullable()->change();
             $table->timestamps();
+           
         });
     }
 
