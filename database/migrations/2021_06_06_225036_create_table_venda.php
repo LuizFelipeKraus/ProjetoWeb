@@ -16,7 +16,7 @@ class CreateTableVenda extends Migration
         Schema::create('venda', function (Blueprint $table) {
             $table->id();
             $table->decimal('valor_total',15,2);
-            $table->foreignId('id_cliente')->constrained('cliente');
+            $table->foreignId('id_users')->constrained('users');
             $table->foreignId('id_endereco')->constrained('endereco');
             $table->timestamps();
         });
@@ -30,8 +30,8 @@ class CreateTableVenda extends Migration
     public function down()
     {
         Schema::table('venda', function (Blueprint $table) {
-            $table->dropForeign(['id_cliente']);
-            $table->dropColumn('id_cliente');
+            $table->dropForeign(['id_users']);
+            $table->dropColumn('id_users');
             $table->dropForeign(['id_endereco']);
             $table->dropColumn('id_endereco');
         });
