@@ -18,6 +18,7 @@ class AlterTableUsers extends Migration
             $table->string('rg');
             $table->date('data_nascimento');
             $table->string('telefone');
+            $table->string('permissao');
         });
     }
 
@@ -33,6 +34,7 @@ class AlterTableUsers extends Migration
             $table->dropColumn('rg');
             $table->dropColumn('data_nascimento');
             $table->dropColumn('telefone');
+            $table->dropColumn('permissao');
         });
         
     }
