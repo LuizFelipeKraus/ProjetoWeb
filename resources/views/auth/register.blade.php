@@ -61,6 +61,38 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">cpf</label>
+
+                            <div class="col-md-6">
+                                <input id="cpf" type="text" class="form-control" name="cpf" required autocomplete="cpf">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">rg</label>
+
+                            <div class="col-md-6">
+                                <input id="rg" type="text" class="form-control" name="rg" required autocomplete="rg">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">telefone</label>
+
+                            <div class="col-md-6">
+                                <input id="telefone" type="text" class="form-control" name="telefone" required autocomplete="telefone">
+                            </div>
+                        </div><div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">data_nascimento</label>
+
+                            <div class="col-md-6">
+                                <input id="data_nascimento" type="text" class="form-control" name="data_nascimento" required autocomplete="data_nascimento">
+                            </div>
+                        </div>
+                      
+
+
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

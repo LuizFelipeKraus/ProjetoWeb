@@ -20,7 +20,7 @@ class CreateTableEndereco extends Migration
             $table->integer('numero');
             $table->string('bairro');
             $table->foreignId('id_cidade')->constrained('cidade');
-            $table->foreignId('id_cliente')->constrained('cliente');
+            $table->foreignId('id_users')->constrained('users');
             $table->timestamps();
         });
     }
@@ -35,8 +35,8 @@ class CreateTableEndereco extends Migration
         Schema::table('endereco', function (Blueprint $table) {
             $table->dropForeign(['id_cidade']);
             $table->dropColumn('id_cidade');
-            $table->dropForeign(['id_cliente']);
-            $table->dropColumn('id_cliente');
+            $table->dropForeign(['id_users']);
+            $table->dropColumn('id_users');
         });
         Schema::dropIfExists('endereco');
     }
