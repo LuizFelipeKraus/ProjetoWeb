@@ -28,6 +28,7 @@ class User extends Authenticatable
         'rg',
         'telefone',
         'data_nascimento'
+        'permissao'
     ];
 
     /**

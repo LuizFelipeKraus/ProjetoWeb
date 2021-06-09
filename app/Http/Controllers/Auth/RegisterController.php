@@ -77,6 +77,7 @@ class RegisterController extends Controller
             'rg' => $data['rg'],
             'data_nascimento' => $data['data_nascimento'],
             'telefone' => $data['telefone'],
+            'permissao' => 0 ,
         ]);;
     }
 }
