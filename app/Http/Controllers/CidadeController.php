@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cidade;
+use App\Models\Estado;
 class CidadeController extends Controller
 {
     function viewNovaCidade(){
-        return view('CidadeCadastro');
+        $lEstado = Estado::all();
+        return view('CidadeCadastro', [
+            'lEstado' => $lEstado
+        ]);
     }
 
     function viewListaCidade(){
@@ -17,7 +21,11 @@ class CidadeController extends Controller
 
     function viewAlterarCidade($id){
         $aCidade = Cidade::findOrFail($id);
-        return view('CidadeAlterar',['aCidade' => $aCidade]);
+        $lEstado = Estado::all();
+        return view('CidadeAlterar',[
+            'aCidade' => $aCidade,
+            'lEstado' => $lEstado
+        ]);
     }
 
     function novaCidade(Request $req){
