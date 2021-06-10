@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Venda extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $table = 'venda';
 
     function produtos(){

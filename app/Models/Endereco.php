@@ -12,6 +12,7 @@ class Endereco extends Model
 {
     use HasFactory, SoftDeletes;
     
+
     protected $table = "endereco";
 
     function cliente(){

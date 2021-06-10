@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class FotoProduto extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $table = "foto_produto";
 
     function produto(){

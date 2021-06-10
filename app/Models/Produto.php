@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Produto extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $table = "produto";
 
     function vendas(){

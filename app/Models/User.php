@@ -6,9 +6,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Cliente;
 use App\Models\Admin;
+
 use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class User extends Authenticatable
 {
@@ -23,6 +24,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'cpf',
+        'rg',
+        'telefone',
+        'data_nascimento'
+        'permissao'
     ];
 
     /**
@@ -44,10 +50,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function cliente(){
-        return $this->hasOne(Cliente::class, 'id_users', 'id');
-    }
-
+   
     public function admin(){
         return $this->hasOne(Admin::class, 'id_users', 'id');
     }

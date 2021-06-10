@@ -11,6 +11,7 @@ class Cidade extends Model
 {
     use HasFactory, SoftDeletes;
 
+
     protected $table = "cidade";
 
     function estado(){
