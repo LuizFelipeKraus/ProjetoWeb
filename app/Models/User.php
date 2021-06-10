@@ -33,7 +33,7 @@ class User extends Authenticatable
         'cpf',
         'rg',
         'telefone',
-        'data_nascimento'
+        'data_nascimento',
         'permissao'
     ];
 

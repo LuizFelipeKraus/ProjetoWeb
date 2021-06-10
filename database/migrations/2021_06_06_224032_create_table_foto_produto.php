@@ -28,7 +28,7 @@ class CreateTableFotoProduto extends Migration
      */
     public function down()
     {
-        Schema::table('produto', function (Blueprint $table) {
+        Schema::table('foto_produto', function (Blueprint $table) {
             $table->dropForeign(['id_produto']);
             $table->dropColumn('id_produto');
         });
