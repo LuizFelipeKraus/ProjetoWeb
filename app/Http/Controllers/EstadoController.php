@@ -7,17 +7,17 @@ use App\Models\Estado;
 class EstadoController extends Controller
 {
     function viewNovaEstado(){
-        return view('EstadoCadastro');
+        return view('admin.EstadoCadastro');
     }
 
     function viewListaEstado(){
         $lEstado= Estado::all();
-        return view('EstadoLista', ['lEstado' => $lEstado]);
+        return view('admin.EstadoLista', ['lEstado' => $lEstado]);
     }
 
     function viewAlterarEstado($id){
         $aEstado = Estado::findOrFail($id);
-        return view('EstadoAlterar',['aEstado' => $aEstado]);
+        return view('admin.EstadoAlterar',['aEstado' => $aEstado]);
     }
 
     function novaEstado(Request $req){
@@ -34,7 +34,7 @@ class EstadoController extends Controller
                 'mensagemSalvar' => 'Erro ao adicionar uma nova estado.'  
             ]);
         }
-        return redirect()->route('view_estado_lista');
+        return redirect()->route('view_listar_estado');
     }
 
     function AlterarEstado($id, Request $req){
@@ -52,21 +52,12 @@ class EstadoController extends Controller
                 'mensagemAlterar' => 'Erro ao alterar uma nova estado.'  
             ]);
         }
-        return redirect()->route('view_estado_lista');
+        return redirect()->route('view_listar_estado');
     }
 
-    function deletarestado($id){
+    function deletarEstado($id){
         $dEstado = estado::findOrFail($id);
-
-        if($dEstado->delete()){
-            session([
-                'mensagemDeletar' => 'Sucesso ao excluir uma nova estado.'  
-            ]);            
-        }else{
-            session([
-                'mensagemDeletar' => 'Erro ao excluir uma nova estado.'  
-            ]);
-        }
-        return redirect()->route('view_estado_lista');
+        $dEstado->delete();
+        return redirect()->route('view_listar_estado');
     }
 }
