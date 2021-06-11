@@ -5,24 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cidade;
 use App\Models\Estado;
+
 class CidadeController extends Controller
 {
     function viewNovaCidade(){
         $lEstado = Estado::all();
-        return view('CidadeCadastro', [
+        return view('admin.CidadeCadastrar', [
             'lEstado' => $lEstado
         ]);
     }
 
     function viewListaCidade(){
         $lCidade = Cidade::all();
-        return view('CidadeLista', ['lCidade' => $lCidade]);
+        return view('admin.CidadeListar', ['lCidade' => $lCidade]);
     }
 
     function viewAlterarCidade($id){
         $aCidade = Cidade::findOrFail($id);
         $lEstado = Estado::all();
-        return view('CidadeAlterar',[
+        return view('admin.CidadeAlterar',[
             'aCidade' => $aCidade,
             'lEstado' => $lEstado
         ]);
@@ -32,7 +33,6 @@ class CidadeController extends Controller
         $nCidade = new Cidade();
         $nCidade->nome = $req->input('nome');
         $nCidade->id_estado = $req->input('id_estado');
-
         if($nCidade->save()){
             session([
                 'mensagemSalvar' => 'Sucesso ao adicionar uma nova cidade.'  
@@ -42,7 +42,7 @@ class CidadeController extends Controller
                 'mensagemSalvar' => 'Erro ao adicionar uma nova cidade.'  
             ]);
         }
-        return redirect()->route('view_cidade_lista');
+        return redirect()->route('view_listar_cidade');
     }
 
     function AlterarCidade($id, Request $req){
@@ -60,7 +60,7 @@ class CidadeController extends Controller
                 'mensagemAlterar' => 'Erro ao alterar uma nova cidade.'  
             ]);
         }
-        return redirect()->route('view_cidade_lista');
+        return redirect()->route('view_listar_cidade');
     }
 
     function deletarCidade($id){
@@ -75,7 +75,7 @@ class CidadeController extends Controller
                 'mensagemDeletar' => 'Erro ao excluir uma nova cidade.'  
             ]);
         }
-        return redirect()->route('view_cidade_lista');
+        return redirect()->route('view_listar_cidade');
     }
 
     

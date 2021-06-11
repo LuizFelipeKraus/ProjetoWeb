@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.app_tela_listas')
 @routes
 @section('content')
 <table class="table table-bordered  table-dark table-striped mt-4">
 	<thead>
 		<th>ID</th>
-		<th>Nome</th>
 		<th>Estado</th>
+		<th>Sigla</th>
 		<th>Alteração</th>
 		<th>Exclusão</th>
 	</thead>

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Modles\Estado;
+use App\Models\Estado;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cidade extends Model
