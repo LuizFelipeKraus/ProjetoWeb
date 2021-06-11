@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ExclusaoLogicaAdmin extends Migration
+class AlterTableCidade extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class ExclusaoLogicaAdmin extends Migration
      */
     public function up()
     {
-        Schema::table('table_admin', function(Blueprint $table){
-            $table->softDeletes();
+        Schema::table('cidade', function (Blueprint $table) {
+            $table->timestamps();
         });
+       
     }
 
     /**
@@ -25,8 +26,8 @@ class ExclusaoLogicaAdmin extends Migration
      */
     public function down()
     {
-        Schema::table('table_admin', function(Blueprint $table){
-            $table->dropSoftDeletes();
+        Schema::table('cidade', function (Blueprint $table) {
+            $table->dropColumn->timestamps();
         });
     }
 }
