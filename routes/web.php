@@ -98,6 +98,10 @@ Route::middleware('auth')->group(function(){
     Route::post('/carrinho/adiciona', [CarrinhoController::class, 'finalizaAdicao'])->name('finaliza_adicao_carrinho');
     Route::get('/carrinho', [CarrinhoController::class, 'visualiza'])->name('carrinho');
     Route::post('/fecha_carrinho', [CarrinhoController::class, 'fechaCarrinho'])->name('fecha_carrinho');
+
+    /*Views Produto*/
+    Route::get('/view/produto/unitario/{produto}', [ProdutoController::class, 'viewProdutosUnitario'])->name('view_unitario_produto');
+    
 });
 
 Auth::routes();
