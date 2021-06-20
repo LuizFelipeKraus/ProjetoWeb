@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Cadastro de Estado') }}</div>
+                <div class="card-header">{{ __('Cadastro de Plataforma') }}</div>
                 @if ($errors->any())
 	<div class="alert alert-danger">
 	<ul>
@@ -16,23 +16,13 @@
 	</div>
 @endif
                 <div class="card-body">
-                    <form method="POST" action="{{ route('adicionar_estado') }}">
+                    <form method="POST" action="{{ route('adicionar_plataforma') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
                             <div class="col-md-6">
                                 <input id="nome" type="text" class="form-control" name="nome" required autocomplete="nome" autofocus />
 
-                               
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="sigla" class="col-md-4 col-form-label text-md-right">{{ __('Sigla') }}</label>
-                            <div class="col-md-6">
-                                <input id="sigla" type="text" class="form-control " name="sigla" required placeholder="UF" autocomplete="sigla" />
-
-                                
                             </div>
                         </div>
                         <div class="form-group row mb-0">

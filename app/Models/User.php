@@ -59,4 +59,9 @@ class User extends Authenticatable
     public function admin(){
         return $this->permissao == 1;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
 }

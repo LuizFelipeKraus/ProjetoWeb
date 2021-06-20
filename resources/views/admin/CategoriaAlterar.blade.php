@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Alterar Cidade') }}</div>
+                <div class="card-header">{{ __('Alterar Categoria') }}</div>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -16,27 +16,27 @@
                 </div>
                 @endif
                 <div class="card-body">
-                    <form method="POST" action="{{ route('alterar_cidade',['id'=> $aCidade->id]) }}">
+                    <form method="POST" action="{{ route('alterar_categoria', ['id'=> $aCategoriaProduto->id]) }}">
                         @csrf
                         <div class="form-group row">
-                            <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Cidade') }}</label>
+                            <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control @error('nome') is-invalid @enderror"
-                                    name="nome" required autocomplete="nome" autofocus />
-
+                                <input id="nome" type="text" class="form-control " name="nome" required
+                                    autocomplete="nome" autofocus value="{{$aCategoriaProduto->nome}}"/>
 
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="sigla" class="col-md-4 col-form-label text-md-right">{{ __('Estado') }}</label>
+                            <label for="categoria_pai"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Categoria Pai') }}</label>
                             <div class="col-md-6">
-                                <select id="id_estado" name="id_estado" class="form-control ">
-                                    @foreach($lEstado as $aEstado)
-                                    <option value="{{$aEstado->id}}">{{$aEstado->nome}}</option>
+                                <select class="form-control" id="categoria_pai" name="categoria_pai">
+                                    <option value="">{{$aCategoriaProduto->categoria_pai}}</option>
+                                    @foreach($lCategoriaProdutos as $categoria)
+                                    <option>{{$categoria->nome}}</option>
                                     @endforeach
                                 </select>
-
 
                             </div>
                         </div>

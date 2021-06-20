@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'BLLW Game Store') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,7 +18,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">    
+    <link rel="icon" href="{{ url('storage/img/bllw_fav.png')}}" sizes="32x32" type="image/png"/>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ url('storage/img/bllw_branco.png')}}" width="20px" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -86,28 +87,28 @@
                 <div class="card bg-dark text-dark  text-center">
                     <img height="125px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6vHF76aMvR833bPfknqe8JedOJBZN_hjKxg&usqp=CAU" class="card-img" alt="...">
                     <div class="card-img-overlay">
-                        <a href="{{route('view_listar_estado')}}" class="btn btn-light btn-block mt-4">Lista de Clientes</a>
+                        <a href="{{route('view_listar_auth')}}" class="btn btn-light btn-block mt-4">Lista de Usuários</a>
                     </div>
                 </div>
 
                 <div class="card bg-dark text-dark  text-center">
                     <img height="125px" src="https://cdn.cgn.inf.br/cgn-cdn/fotos-cgn/2020/08/27161304/Série-GDLK.jpg" class="card-img" alt="...">
                     <div class="card-img-overlay">
-                        <a href="{{route('view_listar_estado')}}" class="btn btn-light btn-block mt-4">Lista de Categoria Jogos</a>
+                        <a href="{{route('view_listar_categoria')}}" class="btn btn-light btn-block mt-4">Lista de Categoria Jogos</a>
                     </div>
                 </div>
 
                 <div class="card bg-dark text-dark  text-center">
                     <img height="125px" src="https://tecnoblog.net/meiobit/wp-content/uploads/2017/11/20171124games.jpg" class="card-img" alt="...">
                     <div class="card-img-overlay">
-                        <a href="{{route('view_listar_estado')}}" class="btn btn-light btn-block mt-4">Lista de Plataformas de Jogos</a>
+                        <a href="{{route('view_listar_plataforma')}}" class="btn btn-light btn-block mt-4">Lista de Plataformas de Jogos</a>
                     </div>
                 </div>
 
                 <div class="card bg-dark text-dark  text-center">
                     <img height="125px" src="https://geek360.com.br/wp-content/uploads/2018/12/melhores-jogos-para-pc.jpg " class="card-img" alt="...">
                     <div class="card-img-overlay">
-                        <a href="{{route('view_listar_estado')}}" class="btn btn-light btn-block mt-4">Lista de Jogos</a>
+                        <a href="{{route('view_listar_produto')}}" class="btn btn-light btn-block mt-4">Lista de Produto</a>
                     </div>
                 </div>
 

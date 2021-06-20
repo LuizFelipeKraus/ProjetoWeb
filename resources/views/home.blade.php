@@ -1,23 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@foreach($ps as $p)
+	<div class="col-md-3 mb-2 ">
+		<div class="col-md-12 card {{ (!$loop->first ? 'ml-2': '') }}">
+			@if(isset($p->fotoProduto->first()->nome_arquivo))
+            	<img src="{{url($p->fotoProduto->first()->nome_arquivo)}}" class="card-img-top img-fluid" alt="..." width="100" height="200" />
+            @endif
+		  <div class="card-body">
+		    <h5 class="card-title">{{ $p->nome }}</h5>
+		    <p class="card-text">{{ $p->valor_unitario }}</p>
+		    <a href="{{ route('view_adiciona_carrinho', ['produto'=>$p->id]) }}" class="btn btn-primary w-100">Adicionar ao carrinho</a>
+		  </div>
+		</div>
+	</div>
+	@endforeach
 @endsection

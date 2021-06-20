@@ -33,15 +33,13 @@ class CidadeController extends Controller
         $nCidade = new Cidade();
         $nCidade->nome = $req->input('nome');
         $nCidade->id_estado = $req->input('id_estado');
-        if($nCidade->save()){
-            session([
-                'mensagemSalvar' => 'Sucesso ao adicionar uma nova cidade.'  
-            ]);            
-        }else{
-            session([
-                'mensagemSalvar' => 'Erro ao adicionar uma nova cidade.'  
-            ]);
-        }
+        
+        $req->validate([
+    	    'nome' => ['required', 'string', 'max:75'],
+    	    'id_estado' => ['required', 'integer', 'max:75']
+    	]);
+
+        $nCidade->save();
         return redirect()->route('view_listar_cidade');
     }
 
@@ -51,30 +49,20 @@ class CidadeController extends Controller
         $aCidade->nome = $req->input('nome');
         $aCidade->id_estado = $req->input('id_estado');
 
-        if($aCidade->save()){
-            session([
-                'mensagemAlterar' => 'Sucesso ao alterar uma nova cidade.'  
-            ]);            
-        }else{
-            session([
-                'mensagemAlterar' => 'Erro ao alterar uma nova cidade.'  
-            ]);
-        }
+        
+        $req->validate([
+    	    'nome' => ['required', 'string', 'max:75'],
+    	    'id_estado' => ['required', 'integer', 'max:75']
+    	]);
+
+        $aCidade->save();
         return redirect()->route('view_listar_cidade');
     }
 
     function deletarCidade($id){
         $dCidade = Cidade::findOrFail($id);
 
-        if($dCidade->delete()){
-            session([
-                'mensagemDeletar' => 'Sucesso ao excluir uma nova cidade.'  
-            ]);            
-        }else{
-            session([
-                'mensagemDeletar' => 'Erro ao excluir uma nova cidade.'  
-            ]);
-        }
+        $dCidade->delete();
         return redirect()->route('view_listar_cidade');
     }
 
