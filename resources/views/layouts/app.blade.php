@@ -57,7 +57,9 @@
                                 @if(Auth::user()->permissao == 1)
                                     <a href="{{route('view_listar_auth')}}" class="nav-link">Admin</a>                                
                                 @else
-                                    
+                                <li class="nav-item ">
+                                    <a href="{{route('view_adicionar_endereco')}}" class="nav-link">Endereço</a> 
+                                </li>
                                     @if (!session()->has('carrinho')) 
                                         <a href="{{ route('carrinho') }}" class="nav-link">Carrinho</a>                      
                                         

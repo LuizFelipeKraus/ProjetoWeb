@@ -10,7 +10,7 @@
 		  <div class="card-body">
 		    <h5 class="card-title">{{ $p->nome }}</h5>
 		    <p class="card-text">{{ $p->valor_unitario }}</p>
-		    <a href="{{ route('view_adiciona_carrinho', ['produto'=>$p->id]) }}" class="btn btn-primary w-100">Adicionar ao carrinho</a>
+		    <a href="{{ route('view_unitario_produto', ['produto'=>$p]) }}" class="btn btn-primary w-100">Detalhes produtos</a>
 		  </div>
 		</div>
 	</div>

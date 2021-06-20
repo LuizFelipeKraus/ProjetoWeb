@@ -9,6 +9,16 @@ use App\Models\Produto;
 use App\Models\FotoProduto;
 class ProdutoController extends Controller
 {
+    
+    function viewProdutosUnitario($produto){
+        $p = Produto::findOrFail($produto);
+
+        return view('ProdutoUnitario', [
+            'produto' => $p
+
+        ]);
+    }
+
     function viewNovaProduto(){
         $lCategorias = CategoriaProduto::all();
         $lPlataforma = Plataforma::all();
