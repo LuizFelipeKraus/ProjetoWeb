@@ -19,8 +19,9 @@ class CreateTableEndereco extends Migration
             $table->string('logradouro');
             $table->integer('numero');
             $table->string('bairro');
+            $table->unsignedBigInteger('id_cliente');
             $table->foreignId('id_cidade')->constrained('cidade');
-            $table->foreignId('id_users')->constrained('users');
+            $table->foreign('id_cliente')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -32,12 +33,7 @@ class CreateTableEndereco extends Migration
      */
     public function down()
     {
-        Schema::table('endereco', function (Blueprint $table) {
-            $table->dropForeign(['id_cidade']);
-            $table->dropColumn('id_cidade');
-            $table->dropForeign(['id_users']);
-            $table->dropColumn('id_users');
-        });
+        
         Schema::dropIfExists('endereco');
     }
 }

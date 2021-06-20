@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIdEstadoNaTabelaCidade extends Migration
+class AlterTableVenda extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateIdEstadoNaTabelaCidade extends Migration
      */
     public function up()
     {
-        Schema::table('cidade', function (Blueprint $table) {
-            $table->foreignId('id_estado')->constrained('estado');
+        Schema::table('venda', function (Blueprint $table) {
+            $table->integer('quatidade_total');
         });
+       
     }
 
     /**
@@ -25,9 +26,8 @@ class CreateIdEstadoNaTabelaCidade extends Migration
      */
     public function down()
     {
-        Schema::table('cidade', function (Blueprint $table) {
-            $table->dropForeign(['id_estado']);
-            $table->dropColumn('id_estado');
+        Schema::table('venda', function (Blueprint $table) {
+            $table->dropColumn('quatidade_total');
         });
     }
 }

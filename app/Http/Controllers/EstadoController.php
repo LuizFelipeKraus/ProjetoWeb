@@ -24,16 +24,12 @@ class EstadoController extends Controller
         $nEstado = new Estado();
         $nEstado->nome = $req->input('nome');
         $nEstado->sigla = $req->input('sigla');
-
-        if($nEstado->save()){
-            session([
-                'mensagemSalvar' => 'Sucesso ao adicionar uma nova estado.'  
-            ]);            
-        }else{
-            session([
-                'mensagemSalvar' => 'Erro ao adicionar uma nova estado.'  
-            ]);
-        }
+        $req->validate([
+    	    'nome' => ['required', 'string', 'max:75'],
+    	    'sigla' => ['required', 'string', 'max:2']
+    	]);
+        
+        $nEstado->save();
         return redirect()->route('view_listar_estado');
     }
 
@@ -42,16 +38,11 @@ class EstadoController extends Controller
 
         $aEstado->nome = $req->input('nome');
         $aEstado->sigla = $req->input('sigla');
-
-        if($aEstado->save()){
-            session([
-                'mensagemAlterar' => 'Sucesso ao alterar uma nova estado.'  
-            ]);            
-        }else{
-            session([
-                'mensagemAlterar' => 'Erro ao alterar uma nova estado.'  
-            ]);
-        }
+        $req->validate([
+    	    'nome' => ['required', 'string', 'max:75'],
+    	    'sigla' => ['required', 'string', 'max:2']
+    	]);
+        $aEstado->save();
         return redirect()->route('view_listar_estado');
     }
 

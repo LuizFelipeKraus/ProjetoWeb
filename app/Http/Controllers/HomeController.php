@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use Illuminate\Http\Request;
+use App\Models\FotoProduto;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $produto = Produto::all();
+        $fotoProdutos = FotoProduto::all();
+        return view('home', [
+            'ps' => $produto,
+            'fotoProdutos' => $fotoProdutos
+        ]);
     }
 }

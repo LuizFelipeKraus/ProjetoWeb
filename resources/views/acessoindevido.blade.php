@@ -2,7 +2,8 @@
 
 @section('content')
     <h1 class="alert alert-danger">
-        <a href="{{login}}" class="btn btn-info ">Voltar</a>
+        Você entrou em um mundo proibido !!
+        <a href="{{route('home')}}" class="btn btn-danger ">Voltar</a>
     </h1>
 
 @endsection
