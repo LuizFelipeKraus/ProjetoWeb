@@ -18,6 +18,7 @@ class ProdutoController extends Controller
 
         ]);
     }
+    
 
     function viewNovaProduto(){
         $lCategorias = CategoriaProduto::all();
@@ -42,7 +43,7 @@ class ProdutoController extends Controller
         'lPlataforma' => $lPlataforma
         ]);
     }
-
+    
     function novaProduto(Request $req){
         $nProduto = new Produto();
        
@@ -50,7 +51,7 @@ class ProdutoController extends Controller
             'nome' => ['required', 'string', 'max:255'],
             'quantidade' => ['required', 'numeric', 'min:1'],
             'valor' => ['required',  'numeric', 'min:1'],
-            'descricao' => ['required', 'string', 'max:255'],
+            'descricao' => ['required', 'string'],
         ]);
         $nProduto->nome = $req->input('nome');
         $nProduto->quantidade = $req->input('quantidade');
@@ -132,7 +133,7 @@ class ProdutoController extends Controller
             'nome' => ['required', 'string', 'max:255'],
             'quantidade' => ['required', 'numeric', 'min:1'],
             'valor' => ['required',  'numeric', 'min:1'],
-            'descricao' => ['required', 'string', 'max:255'],
+            'descricao' => ['required', 'string'],
         ]);
         $aProduto->nome = $req->input('nome');
         $aProduto->quantidade = $req->input('quantidade');

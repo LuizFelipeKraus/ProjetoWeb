@@ -30,8 +30,8 @@
                         <div class="form-group row">
                             <label for="descricao" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
                             <div class="col-md-6">
-                                <input id="descricao" type="text" class="form-control " name="descricao" required
-                                    autocomplete="descricao" autofocus value="{{$aProduto->descricao}} "/>
+                                <textarea id="descricao" type="text" class="form-control " name="descricao" required
+                                    autocomplete="descricao" autofocus > {{$aProduto->descricao}} </textarea>
 
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                         <div class="form-group row">
                             <label for="quantidade" class="col-md-4 col-form-label text-md-right">{{ __('Quantidade') }}</label>
                             <div class="col-md-6">
-                                <input id="quantidade" type="number" class="form-control " name="quantidade" required
+                                <input id="quantidade" type="number" class="form-control " min="1"name="quantidade" required
                                     autocomplete="quantidade" autofocus value="{{$aProduto->quantidade}}"/>
 
                             </div>
@@ -48,7 +48,8 @@
                         <div class="form-group row">
                             <label for="valor" class="col-md-4 col-form-label text-md-right">{{ __('Valor') }}</label>
                             <div class="col-md-6">
-                                <input id="valor" type="number" class="form-control " name="valor" required
+                                <input id="valor" type="number" class="form-control " min="
+                                1"name="valor" required
                                     autocomplete="valor" autofocus value="{{$aProduto->valor}}"/>
                             </div>
                         </div>
@@ -58,7 +59,7 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('Categoria') }}</label>
                             <div class="col-md-6">
                                 <select class="form-control" id="id_categoria_produto" name="id_categoria_produto">
-                                    <option value="">{{$aProduto->categoriaProduto->nome}}</option>   
+                                    <option value="{{$aProduto->categoriaProduto->id}}">{{$aProduto->categoriaProduto->nome}}</option>   
                                     @foreach($lCategorias as $categoria)
                                         <option value="{{$categoria->id}}">{{$categoria->nome}}</option>
                                     @endforeach
@@ -71,7 +72,7 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('Plataforma') }}</label>
                             <div class="col-md-6">
                                 <select class="form-control" id="id_plataforma" name="id_plataforma">
-                                <option value="">{{$aProduto->plataforma->nome}}</option>                                   
+                                <option value="{{$aProduto->plataforma->id}}">{{$aProduto->plataforma->nome}}</option>                                   
                                     @foreach($lPlataforma as $plataforma)
                                         <option value="{{$plataforma->id}}">{{$plataforma->nome}}</option>
                                     @endforeach

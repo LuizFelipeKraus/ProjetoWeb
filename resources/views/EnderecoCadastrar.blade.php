@@ -68,11 +68,15 @@
                         </div>
 
                         <div class="form-group row mb-0">
+                        @if(Auth::user()->permissao == 1)
+                                
+                        @else
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary btn-block">
                                     {{ __('Registrar') }}
                                 </button>
                             </div>
+                        @endif
                         </div>
                     </form>
                 </div>

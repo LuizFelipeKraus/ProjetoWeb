@@ -19,7 +19,7 @@
 	</tbody>
 	@endforeach
 </table>
-<a href="{{route('view_adicionar_estado')}}" class="btn btn-primary btn-block">Nova Cidade</a>
+<a href="{{route('view_adicionar_estado')}}" class="btn btn-primary btn-block">Novo Estado</a>
 
 <script>
     function excluir(id) {
