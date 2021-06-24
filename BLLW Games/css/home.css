@@ -1,0 +1,106 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+html{
+    background-color: #212121;
+    color: #fff;
+}
+::selection {
+    background: #ffd035;
+    color: #fff;
+}
+::-moz-selection {
+    background: #ffd035;
+    color: #fff;
+}
+::-webkit-scrollbar-track {
+    background-color: #212121;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #181818;
+}
+::-webkit-scrollbar-button{
+    background-color: #212121;
+}
+::-webkit-scrollbar-corner{
+    background-color: #212121;
+}
+::-webkit-scrollbar-thumb {
+    background: #fff; 
+    border-radius: 3px;
+}
+.colornav{
+    background-color: #212121;
+}
+.ajusright{
+    background-color: #181818;
+    padding-top: 1rem;
+}
+.containerAjuste{
+    background-color: #212121;
+    padding-top: 4rem;
+}
+.colortec{
+    background-color: #181818;
+    border-color: #181818;
+    color: #fff;  
+}
+.iconsjuste{
+    color: #fff;
+    align-items: center; 
+    justify-content: center;
+}
+i{
+    color: #fff;
+}
+.ajusteslistgrup{
+    width: 100%;
+    height: 100vh;
+    display: block;
+}
+.ajusteslistgrup::-webkit-scrollbar-thumb {
+        background: red;
+        border-radius: 3px;
+    }
+
+.list-group-item{
+    align-items: center;
+}
+.list-group-item:hover{
+    background-color: #181818;
+    color: #fff;
+    border-color: transparent;
+}
+hr{
+    background-color: #fff
+}
+.ajustpesq{
+    background-color: #181818; 
+    width: 600px;
+}
+@media (max-width: 576px){
+    .containerAjuste{
+        padding-top: 11rem;
+    }
+    .ajustpesq{
+        background-color: #181818; 
+        width: 300px;
+    }
+    .list-group-item{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 768px){
+    .ajustpesq{
+        background-color: #181818; 
+        width: 600px;
+    }
+    .containerAjuste{
+        padding-top: 9rem;
+    }
+}
