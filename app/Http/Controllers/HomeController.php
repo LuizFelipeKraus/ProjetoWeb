@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use Illuminate\Http\Request;
+use App\Models\FotoProduto;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $id = rand(11,18);
+        $produn = Produto::find($id);
+        $produto = Produto::all();
+        return view('home', [
+            'ps' => $produto,
+            'produn' => $produn
+        ]);
     }
 }

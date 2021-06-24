@@ -25,7 +25,7 @@ class CreateIdEstadoNaTabelaCidade extends Migration
      */
     public function down()
     {
-        Schema::create('cidade', function (Blueprint $table) {
+        Schema::table('cidade', function (Blueprint $table) {
             $table->dropForeign(['id_estado']);
             $table->dropColumn('id_estado');
         });

@@ -7,34 +7,36 @@ use App\Models\CategoriaProduto;
 class CategoriaProdutoController extends Controller
 {
     function viewNovaCategoriaProduto(){
-        return view('CategoriaProdutoCadastro');
+        $lCategorias = CategoriaProduto::all();
+        return view('admin.CategoriaCadastrar', [
+            'lCategorias' => $lCategorias
+        ]);
     }
 
     function viewListaCategoriaProduto(){
         $lCategoriaProduto = CategoriaProduto::all();
-        return view('CategoriaProdutoLista', ['lCategoriaProduto' => $lCategoriaProduto]);
+        return view('admin.CategoriaListar', ['lCategoriaProdutos' => $lCategoriaProduto]);
     }
 
     function viewAlterarCategoriaProduto($id){
         $aCategoriaProduto = CategoriaProduto::findOrFail($id);
-        return view('CategoriaProdutoAlterar',['aCategoriaProduto' => $aCategoriaProduto]);
+        $lCategorias = CategoriaProduto::all();
+        return view('admin.CategoriaAlterar',[
+            'aCategoriaProduto' => $aCategoriaProduto,
+            'lCategoriaProdutos' => $lCategorias
+        ]);
     }
 
     function novaCategoriaProduto(Request $req){
         $nCategoriaProduto  = new CategoriaProduto();
         $nCategoriaProduto->nome = $req->input('nome');
         $nCategoriaProduto->categoria_pai = $req->input('categoria_pai');
-
-        if($nCategoriaProduto->save()){
-            session([
-                'mensagemSalvar' => 'Sucesso ao adicionar uma nova categoria produto.'  
-            ]);            
-        }else{
-            session([
-                'mensagemSalvar' => 'Erro ao adicionar uma nova categoria produto.'  
-            ]);
-        }
-        return redirect()->route('view_categoria_produto_lista');
+        $req->validate([
+    	    'nome' => ['required', 'string', 'max:75'],
+    	    'categoria_pai'=> [ 'max:75']
+    	]);
+        $nCategoriaProduto->save();
+        return redirect()->route('view_listar_categoria');
     }
 
     function AlterarCategoriaProduto($id, Request $req){
@@ -42,31 +44,19 @@ class CategoriaProdutoController extends Controller
 
         $aCategoriaProduto->nome = $req->input('nome');
         $aCategoriaProduto->categoria_pai = $req->input('categoria_pai');
-
-        if($aCategoriaProduto->save()){
-            session([
-                'mensagemAlterar' => 'Sucesso ao alterar uma nova categoria produto.'  
-            ]);            
-        }else{
-            session([
-                'mensagemAlterar' => 'Erro ao alterar uma nova categoria produto.'  
-            ]);
-        }
-        return redirect()->route('view_categoria_produto_lista');
+        $req->validate([
+    	    'nome' => ['required', 'string', 'max:75'],
+    	    'categoria_pai'=> ['max:75']
+    	]);
+        $aCategoriaProduto->save();
+        
+        return redirect()->route('view_listar_categoria');
     }
 
     function deletarCategoriaProduto($id){
         $dCategoriaProduto = CategoriaProduto::findOrFail($id);
 
-        if($dCategoriaProduto->delete()){
-            session([
-                'mensagemDeletar' => 'Sucesso ao excluir uma nova categoria produto.'  
-            ]);            
-        }else{
-            session([
-                'mensagemDeletar' => 'Erro ao excluir uma nova categoria produto.'  
-            ]);
-        }
-        return redirect()->route('view_categoria_produto_lista');
+        $dCategoriaProduto->delete();
+        return redirect()->route('view_listar_categoria');
     }
 }

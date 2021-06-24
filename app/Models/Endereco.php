@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Cidade;
 use App\Models\Cliente;
+use App\Models\Venda;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Endereco extends Model
@@ -21,5 +22,9 @@ class Endereco extends Model
 
     function cidade(){
         return $this->belongsTo(Cidade::class, 'id_cidade', 'id');
+    }
+
+    function venda(){
+        return $this->hasMany(Venda::class, 'id_venda', 'id');
     }
 }

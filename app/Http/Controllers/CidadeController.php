@@ -5,24 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cidade;
 use App\Models\Estado;
+
 class CidadeController extends Controller
 {
     function viewNovaCidade(){
         $lEstado = Estado::all();
-        return view('CidadeCadastro', [
+        return view('admin.CidadeCadastrar', [
             'lEstado' => $lEstado
         ]);
     }
 
     function viewListaCidade(){
         $lCidade = Cidade::all();
-        return view('CidadeLista', ['lCidade' => $lCidade]);
+        return view('admin.CidadeListar', ['lCidade' => $lCidade]);
     }
 
     function viewAlterarCidade($id){
         $aCidade = Cidade::findOrFail($id);
         $lEstado = Estado::all();
-        return view('CidadeAlterar',[
+        return view('admin.CidadeAlterar',[
             'aCidade' => $aCidade,
             'lEstado' => $lEstado
         ]);
@@ -32,17 +33,14 @@ class CidadeController extends Controller
         $nCidade = new Cidade();
         $nCidade->nome = $req->input('nome');
         $nCidade->id_estado = $req->input('id_estado');
+        
+        $req->validate([
+    	    'nome' => ['required', 'string', 'max:75'],
+    	    'id_estado' => ['required', 'integer', 'max:75']
+    	]);
 
-        if($nCidade->save()){
-            session([
-                'mensagemSalvar' => 'Sucesso ao adicionar uma nova cidade.'  
-            ]);            
-        }else{
-            session([
-                'mensagemSalvar' => 'Erro ao adicionar uma nova cidade.'  
-            ]);
-        }
-        return redirect()->route('view_cidade_lista');
+        $nCidade->save();
+        return redirect()->route('view_listar_cidade');
     }
 
     function AlterarCidade($id, Request $req){
@@ -51,31 +49,21 @@ class CidadeController extends Controller
         $aCidade->nome = $req->input('nome');
         $aCidade->id_estado = $req->input('id_estado');
 
-        if($aCidade->save()){
-            session([
-                'mensagemAlterar' => 'Sucesso ao alterar uma nova cidade.'  
-            ]);            
-        }else{
-            session([
-                'mensagemAlterar' => 'Erro ao alterar uma nova cidade.'  
-            ]);
-        }
-        return redirect()->route('view_cidade_lista');
+        
+        $req->validate([
+    	    'nome' => ['required', 'string', 'max:75'],
+    	    'id_estado' => ['required', 'integer', 'max:75']
+    	]);
+
+        $aCidade->save();
+        return redirect()->route('view_listar_cidade');
     }
 
     function deletarCidade($id){
         $dCidade = Cidade::findOrFail($id);
 
-        if($dCidade->delete()){
-            session([
-                'mensagemDeletar' => 'Sucesso ao excluir uma nova cidade.'  
-            ]);            
-        }else{
-            session([
-                'mensagemDeletar' => 'Erro ao excluir uma nova cidade.'  
-            ]);
-        }
-        return redirect()->route('view_cidade_lista');
+        $dCidade->delete();
+        return redirect()->route('view_listar_cidade');
     }
 
     
