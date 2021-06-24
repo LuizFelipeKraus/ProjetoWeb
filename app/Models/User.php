@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Venda;
+use App\Models\Endereco;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -63,5 +65,12 @@ class User extends Authenticatable
     public function getId()
     {
         return $this->id;
+    }
+
+    function endereco(){
+        return $this->hasMany(Endereco::class, 'id_cliente', 'id');
+    }
+    function venda(){
+        return $this->hasMany(Venda::class, 'id_cliente', 'id');
     }
 }

@@ -30,8 +30,8 @@
                         <div class="form-group row">
                             <label for="descricao" class="col-md-4 col-form-label text-md-right">{{ __('Descrição') }}</label>
                             <div class="col-md-6">
-                                <input id="descricao" type="text" class="form-control " name="descricao" required
-                                    autocomplete="descricao" autofocus />
+                                <textarea id="descricao" type="text" class="form-control " name="descricao" required
+                                    autocomplete="descricao" autofocus> </textarea>
 
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                         <div class="form-group row">
                             <label for="quantidade" class="col-md-4 col-form-label text-md-right">{{ __('Quantidade') }}</label>
                             <div class="col-md-6">
-                                <input id="quantidade" type="number" class="form-control " name="quantidade" required
+                                <input id="quantidade" type="number" class="form-control " min="1" name="quantidade" required
                                     autocomplete="quantidade" autofocus />
 
                             </div>
@@ -48,7 +48,7 @@
                         <div class="form-group row">
                             <label for="valor" class="col-md-4 col-form-label text-md-right">{{ __('Valor') }}</label>
                             <div class="col-md-6">
-                                <input id="valor" type="number" class="form-control " name="valor" required
+                                <input id="valor" type="number" class="form-control "  min="1" step="0.01" name="valor" required
                                     autocomplete="valor" autofocus />
                             </div>
                         </div>

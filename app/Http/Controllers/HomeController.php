@@ -25,11 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $id = rand(11,18);
+        $produn = Produto::find($id);
         $produto = Produto::all();
-        $fotoProdutos = FotoProduto::all();
         return view('home', [
             'ps' => $produto,
-            'fotoProdutos' => $fotoProdutos
+            'produn' => $produn
         ]);
     }
 }

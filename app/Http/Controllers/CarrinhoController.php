@@ -6,7 +6,6 @@ use App\Models\Produto;
 use Illuminate\Http\Request;
 use App\Models\Venda;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 use App\Models\Endereco;
 
 class CarrinhoController extends Controller
@@ -22,8 +21,17 @@ class CarrinhoController extends Controller
         ]);
     }
 
+    function viewVenda(){
+        $listaVenda = Venda::where('id_cliente', '=' ,Auth::id())->get();
+        
+            return view('venda', ['listaVenda' => $listaVenda]);
+        
+    }
+
+
     function finalizaAdicao(Request $req){
         $p = Produto::find($req->input('id'));
+        $var =  $p->id;
         $informacoes = [
             'produto' => $p,
             'quantidade' => $req->input('quantidade')
@@ -47,7 +55,6 @@ class CarrinhoController extends Controller
             if (!$atualizacao){
                 $carrinho[] = $informacoes;
             }
-            
             session(['carrinho' => $carrinho]);
         }
 
@@ -58,7 +65,7 @@ class CarrinhoController extends Controller
     function visualiza(){
         $p = null;
         $carrinho = session('carrinho');
-        $lEndereco = Endereco::all();
+        $lEndereco = Endereco::where('id_cliente', '=' ,Auth::id())->get();
         return view('carrinho', [
             'produto' => $p, 
             'carrinho' => $carrinho,
@@ -79,14 +86,11 @@ class CarrinhoController extends Controller
         $valor_total = 0;
 
         foreach ($carrinho as $c){
-            # Atualização do total
             $valor_total += $c['produto']->valor * $c['quantidade'];
 
-            # Atualização das quantidades em estoque
             $c['produto']->quantidade -= $c['quantidade'];
             $c['produto']->save();
 
-            # Vínculo da venda com o produto
             $venda->produtos()->attach($c['produto']->id, [
                 'quantidade_comprada' => $c['quantidade'],
                 'sub_total' => $c['produto']->valor * $c['quantidade']
@@ -103,7 +107,16 @@ class CarrinhoController extends Controller
         session()->forget('carrinho');
         session()->flash('mensagem', 'Venda efetuada com sucesso');
 
-        return redirect()->route('home');
+        return redirect()->route('view_vendas');
 
     }
+    
+    public function excluiCarrinho($id){
+        
+        $carts = session()->get('carrinho');      
+        unset($carts[$id]);
+        session()->forget('carrinho');
+        session()->put('carrinho', $carts);
+        return redirect()->route('carrinho');
+	}
 }
