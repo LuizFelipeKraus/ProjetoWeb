@@ -15,7 +15,7 @@
                 </div>
                 @endif
                 <div class="card-body">
-                <h1 class="text-center"><span class="grad"><strong>Registrar</strong></span></h1>
+                <h1 class="text-center pb-4"><span class="grad"><strong>Registrar</strong></span></h1>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

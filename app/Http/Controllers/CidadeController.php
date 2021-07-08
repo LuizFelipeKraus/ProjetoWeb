@@ -35,8 +35,8 @@ class CidadeController extends Controller
         $nCidade->id_estado = $req->input('id_estado');
         
         $req->validate([
-    	    'nome' => ['required', 'string', 'max:75'],
-    	    'id_estado' => ['required', 'integer', 'max:75']
+    	    'nome' => ['required', 'string', 'max:60'],
+    	    'id_estado' => ['required', 'integer', 'max:60']
     	]);
 
         $nCidade->save();
@@ -51,8 +51,8 @@ class CidadeController extends Controller
 
         
         $req->validate([
-    	    'nome' => ['required', 'string', 'max:75'],
-    	    'id_estado' => ['required', 'integer', 'max:75']
+    	    'nome' => ['required', 'string', 'max:60'],
+    	    'id_estado' => ['required', 'integer', 'max:60']
     	]);
 
         $aCidade->save();
