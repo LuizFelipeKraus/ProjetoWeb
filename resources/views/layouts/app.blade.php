@@ -12,15 +12,28 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS4CL6YFGD"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="icon" href="{{ url("storage/img/bllw_fav.png")}}" sizes="32x32" type="image/png" />
- 
+            gtag('config', 'G-JS4CL6YFGD');
+
+        </script>
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link rel="icon" href="{{ url("storage/img/bllw_fav.png")}}" sizes="32x32" type="image/png" />
+
 </head>
 
 <body>
@@ -60,9 +73,9 @@
                         </li>
                         @endif
                         @else
-                        
+
                         <li class="nav-item ">
-                        @if(Auth::user()->permissao == 1)
+                            @if(Auth::user()->permissao == 1)
                         <li class="nav-item ">
                             <a href="{{route('view_adicionar_endereco')}}" class="nav-link">Endereço</a>
                         </li>

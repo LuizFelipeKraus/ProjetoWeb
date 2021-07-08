@@ -24,7 +24,7 @@ class PlataformaController extends Controller
         $nPlataforma = new Plataforma();
         $nPlataforma->nome = $req->input('nome');
         $req->validate([
-    	    'nome' => ['required', 'string', 'max:75']
+    	    'nome' => ['required', 'string', 'max:60']
     	    
     	]);
 
@@ -37,7 +37,7 @@ class PlataformaController extends Controller
 
         $aPlataforma->nome = $req->input('nome');
         $req->validate([
-    	    'nome' => ['required', 'string', 'max:75']
+    	    'nome' => ['required', 'string', 'max:60']
     	    
     	]);
         $aPlataforma->save();

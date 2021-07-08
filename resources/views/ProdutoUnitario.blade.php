@@ -24,6 +24,7 @@
             <div>
                 <h1>{{$produto->nome}}</h1>
                 <p>{{$produto->categoriaProduto->nome}}</p>
+                <p>{{$produto->plataforma->nome}}</p>
             </div>
             <div class="col-md-6">
                 <h2 class="mb-5">R$ {{$produto->valor}}</h2>

@@ -13,7 +13,19 @@
     <!-- Scripts -->
     <script src="{{ asset('js/scripts.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JS4CL6YFGD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JS4CL6YFGD');
+
+    </script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -28,8 +40,9 @@
     <div class="d-flex" id="wrapper">
         <!-- Barra superior -->
         <div class="" id="sidebar-wrapper">
-            <div class="sidebar-heading"> <a href="{{ route('home') }}"><img src="{{ url('storage/img/Logoverticalpreta.png')}}" width="150" alt="">
-            </a>
+            <div class="sidebar-heading"> <a href="{{ route('home') }}"><img
+                        src="{{ url('storage/img/Logoverticalpreta.png')}}" width="150" alt="">
+                </a>
             </div>
             <div class="list-group list-group-flush ajusmenu">
                 <a class="list-group-item list-group-item-action ajusmenu p-3"
